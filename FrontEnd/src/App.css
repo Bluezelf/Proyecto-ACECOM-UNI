@@ -1,0 +1,29 @@
+.acBox {
+  @apply p-4 lg:px-8 lg:py-5 lg:h-[69%] md:h-full rounded-xl drop-shadow-lg bg-acBox-light text-acBox-light dark:bg-acBox-dark dark:text-acBox-dark;
+}
+
+.acBox__title{
+  @apply text-2xl md:text-2xl lg:text-3xl font-extrabold tracking-wide flex lg:justify-start lg:justify-center
+}
+
+.toggle {
+  @apply block bg-acBlue w-20 h-10 rounded-full duration-150 relative cursor-pointer dark:bg-acBox-dark;
+}
+
+.toggle:before {
+  content: "";
+  @apply bg-acBox-light absolute w-11 h-11 top-1/2 left-0 rounded-full duration-150 drop-shadow-lg -translate-x-[0.5px] -translate-y-1/2;
+}
+
+.checkbox:checked + .toggle{
+  @apply bg-acGray lg:bg-acCoal 
+}
+
+.checkbox:checked + .toggle:before {
+  @apply translate-x-9 -translate-y-1/2 bg-acBlack;
+}
+
+.toggle__icon{
+  @apply absolute duration-150 top-1/2 left-3 text-xl -translate-y-1/2 text-icon-light dark:text-icon-dark dark:left-12;
+}
+

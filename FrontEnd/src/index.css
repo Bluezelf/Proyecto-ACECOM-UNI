@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Poppins:wght@300&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+body{
+    @apply w-screen bg-gradient-to-br from-acSky via-acWhite to-acSky dark:bg-main-dark dark:from-acBlack dark:via-acGray dark:to-acBlack
+}
