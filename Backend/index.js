@@ -39,7 +39,7 @@ const externalSocket = io(serverUrl, {
 });
 
 externalSocket.on(`${sensorId}/initialData`, (data) => {
-    console.log('Data inicial:', data);
+    console.log('Initial Data:', data);
     ioServer.emit(`${sensorId}/initialData`, data);
 });
 
@@ -49,38 +49,38 @@ externalSocket.on(`${sensorId}/aq`, (data) => {
 });
 
 externalSocket.on(`${sensorId}/temperature`, (data) => {
-    console.log('Temperatura (C°):', data);
+    console.log('Temperature (C°):', data);
     ioServer.emit(`${sensorId}/temperature`, data);
 });
 
 externalSocket.on(`${sensorId}/h2s`, (data) => {
-    console.log('Sulfuro de Hidrogeno":', data);
+    console.log('Hydrogen sulfide:', data);
     ioServer.emit(`${sensorId}/h2s`, data);
 });
 
 externalSocket.on(`${sensorId}/humidity`, (data) => {
-    console.log('Humedad (%):', data);
+    console.log('Humidity (%):', data);
     ioServer.emit(`${sensorId}/humidity`, data);
 });
 
 externalSocket.on(`${sensorId}/date`, (data) => {
-    console.log('Fecha y Hora actual:', data);
+    console.log('Current date and hour:', data);
     ioServer.emit(`${sensorId}/date`, data);
 });
 
 externalSocket.on('error', (error) => {
-    console.error('Error de conexión:', error);
+    console.error('Error Connection:', error);
 });
 
 externalSocket.on('disconnect', () => {
-    console.log('Usuario desconectado');
+    console.log('User disconnected');
 });
 
 ioServer.on('connection', (socket) => {
-    console.log('Usuario conectado');
+    console.log('User connected');
 });
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
-    console.log(`Servidor en el puerto ${PORT}`);
+    console.log(`Server on port ${PORT}`);
 });
