@@ -53,14 +53,24 @@ externalSocket.on(`${sensorId}/temperature`, (data) => {
     ioServer.emit(`${sensorId}/temperature`, data);
 });
 
-externalSocket.on(`${sensorId}/h2s`, (data) => {
-    console.log('Hydrogen sulfide:', data);
-    ioServer.emit(`${sensorId}/h2s`, data);
+externalSocket.on(`${sensorId}/co2`, (data) => {
+    console.log('Carbon dioxide:', data);
+    ioServer.emit(`${sensorId}/co2`, data);
 });
 
 externalSocket.on(`${sensorId}/humidity`, (data) => {
     console.log('Humidity (%):', data);
     ioServer.emit(`${sensorId}/humidity`, data);
+});
+
+externalSocket.on(`${sensorId}/pm2_5`, (data) => {
+    console.log('PM2.5 particles (?):', data);
+    ioServer.emit(`${sensorId}/pm2_5`, data);
+});
+
+externalSocket.on(`${sensorId}/pressure`, (data) => {
+    console.log('Pressure (?):', data);
+    ioServer.emit(`${sensorId}/pressure`, data);
 });
 
 externalSocket.on(`${sensorId}/date`, (data) => {
