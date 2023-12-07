@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState, useRef } from 'react';
-import CustomSocketHook from '../../utils/CustomSocketHook';
+import CustomSocketHook from '../../hooks/CustomSocketHook';
 import * as echarts from 'echarts';
 
 // configuracion de la grafica (segun la documentacion de echarts)
@@ -69,9 +69,9 @@ const getChartOption = (xAxis, series) => {
 					color: function(params) {
 					// Cambiar el color según el valor de la data
 					var value = params.data;
-					if (value < 200) {
-						return '#42a548';
-					} else if (value < 300) {
+					if (value < 300) {
+						return '#328737';
+					} else if (value < 350) {
 						return '#dfb213';
 					} else if (value < 400) {
 						return '#de691b';

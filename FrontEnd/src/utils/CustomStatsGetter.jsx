@@ -10,7 +10,7 @@ const CustomStatsGetter = (temperature, humidity, date) => {
 
 	useEffect(() =>{
 		if (date === null) return;
-		setDateFormated(date.slice(0,9))
+		setDateFormated(date.slice(0,10))
 	},[date])
 
 	const stats = [

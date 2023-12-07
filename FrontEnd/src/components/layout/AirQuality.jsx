@@ -1,26 +1,6 @@
 import PropTypes from "prop-types";
+import {getColorClass, getShadowClass} from "../../utils";
 
-function getColorClass(airquality) {
-  if (airquality < 200) {
-    return "text-acGreen";
-  } else if (airquality < 300) {
-    return "text-acYellow";
-  } else if (airquality < 400){
-    return "text-acOrange";
-  } else 
-    return "text-acRed"
-}
-
-function getShadowClass(airquality) {
-  if (airquality < 200) {
-    return "shadow-acGreen";
-  } else if (airquality < 300) {
-    return "shadow-acYellow";
-  } else if (airquality < 400){
-    return "shadow-acOrange";
-  } else 
-    return "shadow-acRed"
-}
 
 const AirQuality = ({socketsInfo}) => {
   

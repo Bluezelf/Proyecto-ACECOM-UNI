@@ -3,6 +3,7 @@ import { io } from 'socket.io-client';
 
 const serverUrl = 'http://localhost:3000';
 const socket = io(serverUrl);
+const SENSOR_ID = 1
 
 const CustomSocketHook = () => {
     const [temperature, setTemperature] = useState(null);
@@ -11,24 +12,24 @@ const CustomSocketHook = () => {
     const [date, setDate] = useState(null);
 
     useEffect(() => {
-        socket.on('1/temperature', (receivedData) => {
+        socket.on(`${SENSOR_ID}/temperature`, (receivedData) => {
             setTemperature(receivedData);
         });
 
-        socket.on('1/aq', (receivedData) => {
+        socket.on(`${SENSOR_ID}/aq`, (receivedData) => {
             setAirQuality(receivedData);
         });
 
-        socket.on('1/humidity', (receivedData) => {
+        socket.on(`${SENSOR_ID}/humidity`, (receivedData) => {
             setHumidity(receivedData);
         });
 
-        socket.on('1/date', (receivedData) => {
+        socket.on(`${SENSOR_ID}/date`, (receivedData) => {
             setDate(receivedData);
         });
 
         return () => {
-            socket.off('1/datos');
+            socket.off(`${SENSOR_ID}/datos`);
         };
     }, []);
 

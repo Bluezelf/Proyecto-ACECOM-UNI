@@ -1,6 +1,6 @@
 import { Details, Graphic, AirQuality} from "./components/layout"
 import { AcDarkMode } from "./components/custom";
-import CustomSocketHook from "./utils/CustomSocketHook";
+import CustomSocketHook from "./hooks/CustomSocketHook";
 
 import "./App.css";
 

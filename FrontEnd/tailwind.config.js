@@ -28,7 +28,7 @@ export default {
         acGray: "#3F3F3F",
         acSmoke: "#f0f0f0",
         acRed: "#af0505",
-        acGreen: "#42a548",
+        acGreen: "#328737",
         acYellow: "#dfb213",
         acOrange: "#de691b"
       },

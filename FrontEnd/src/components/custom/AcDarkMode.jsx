@@ -1,6 +1,6 @@
 import { FaSun } from "react-icons/fa";
 import { FiMoon } from "react-icons/fi";
-import CustomDarkHook from "../../utils/CustomDarkHook";
+import CustomDarkHook from "../../hooks/CustomDarkHook";
 
 const AcDarkMode = () => {
 
