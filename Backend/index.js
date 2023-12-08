@@ -16,7 +16,14 @@ const ioServer = new Server(server, {
     }
 });
 
-const sensorId = 1;
+const SENSOR_ID = 1;
+const INITIAL_DATA = 'initialData'
+const AIR_QUALITY = 'aq'
+const TEMPERATURE = 'temperature'
+const CARBON_DIOXIDE = 'co2'
+const HUMIDITY = 'humidity'
+const PRESSURE = 'pressure'
+const DATE = 'date'
 
 const serverUrl = 'wss://airquality-production.up.railway.app';
 const originHeader = 'http://localhost:3000';
@@ -38,44 +45,39 @@ const externalSocket = io(serverUrl, {
     query: queryObject
 });
 
-externalSocket.on(`${sensorId}/initialData`, (data) => {
+externalSocket.on(`${SENSOR_ID}/${INITIAL_DATA}`, (data) => {
     console.log('Initial Data:', data);
-    ioServer.emit(`${sensorId}/initialData`, data);
+    ioServer.emit(`${SENSOR_ID}/${INITIAL_DATA}`, data);
 });
 
-externalSocket.on(`${sensorId}/aq`, (data) => {
+externalSocket.on(`${SENSOR_ID}/${AIR_QUALITY}`, (data) => {
     console.log('Air Quality:', data);
-    ioServer.emit(`${sensorId}/aq`, data);
+    ioServer.emit(`${SENSOR_ID}/${AIR_QUALITY}`, data);
 });
 
-externalSocket.on(`${sensorId}/temperature`, (data) => {
+externalSocket.on(`${SENSOR_ID}/${TEMPERATURE}`, (data) => {
     console.log('Temperature (C°):', data);
-    ioServer.emit(`${sensorId}/temperature`, data);
+    ioServer.emit(`${SENSOR_ID}/${TEMPERATURE}`, data);
 });
 
-externalSocket.on(`${sensorId}/co2`, (data) => {
+externalSocket.on(`${SENSOR_ID}/${CARBON_DIOXIDE}`, (data) => {
     console.log('Carbon dioxide:', data);
-    ioServer.emit(`${sensorId}/co2`, data);
+    ioServer.emit(`${SENSOR_ID}/${CARBON_DIOXIDE}`, data);
 });
 
-externalSocket.on(`${sensorId}/humidity`, (data) => {
+externalSocket.on(`${SENSOR_ID}/${HUMIDITY}`, (data) => {
     console.log('Humidity (%):', data);
-    ioServer.emit(`${sensorId}/humidity`, data);
+    ioServer.emit(`${SENSOR_ID}/${HUMIDITY}`, data);
 });
 
-externalSocket.on(`${sensorId}/pm2_5`, (data) => {
-    console.log('PM2.5 particles (?):', data);
-    ioServer.emit(`${sensorId}/pm2_5`, data);
-});
-
-externalSocket.on(`${sensorId}/pressure`, (data) => {
+externalSocket.on(`${SENSOR_ID}/${PRESSURE}`, (data) => {
     console.log('Pressure (?):', data);
-    ioServer.emit(`${sensorId}/pressure`, data);
+    ioServer.emit(`${SENSOR_ID}/${PRESSURE}`, data);
 });
 
-externalSocket.on(`${sensorId}/date`, (data) => {
+externalSocket.on(`${SENSOR_ID}/${DATE}`, (data) => {
     console.log('Current date and hour:', data);
-    ioServer.emit(`${sensorId}/date`, data);
+    ioServer.emit(`${SENSOR_ID}/${DATE}`, data);
 });
 
 externalSocket.on('error', (error) => {
